@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuhheedsern Abbahh's Fashion World - Nigeria's Fashion Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --orange: #FF6B00;
+            --orange-dark: #E55A00;
+            --dark: #1A1A1A;
+            --gray: #666666;
+            --light: #F5F5F5;
+            --border: #E0E0E0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #FFFFFF;
+            color: #333;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .top-link {
+            color: #CCC;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.2s;
+        }
+        
+        .top-link:hover {
+            color: white;
+        }
+        
+        /* Header */
+        .main-header {
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+            text-decoration: none;
+        }
+        
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-input {
+            border: 2px solid var(--orange);
+            border-radius: 4px;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--orange);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .header-action {
+            color: var(--dark);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        
+        .header-action i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-link-custom {
+            color: var(--dark);
+            font-weight: 500;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: var(--orange);
+            border-bottom-color: var(--orange);
+        }
+        
+        /* Categories Sidebar */
+        .categories-sidebar {
+            background: white;
+            border-right: 1px solid var(--border);
+            padding: 20px 0;
+            height: 100%;
+        }
+        
+        .category-heading {
+            padding: 10px 20px;
+            font-weight: 700;
+            color: var(--dark);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 10px;
+        }
+        
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            color: var(--gray);
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .category-item:hover {
+            background: var(--light);
+            color: var(--orange);
+            border-left-color: var(--orange);
+            padding-left: 25px;
+        }
+        
+        .category-count {
+            background: var(--light);
+            color: var(--gray);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+        
+        /* Products Grid */
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            border-color: var(--orange);
+        }
+        
+        .product-image-container {
+            height: 220px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #dfe6f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image-placeholder {
+            text-align: center;
+            color: var(--gray);
+            padding: 20px;
+        }
+        
+        .product-image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #CCC;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--orange);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 5px;
+        }
+        
+        .original-price {
+            color: var(--gray);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-rating {
+            color: #FFB800;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-stock {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        
+        .in-stock {
+            color: #10B981;
+        }
+        
+        .add-to-cart-btn {
+            background: var(--orange);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: var(--orange-dark);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-section h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .footer-links a {
+            color: #AAA;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Help Button */
+        .help-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+        }
+        
+        /* Image Upload Instructions */
+        .upload-instructions {
+            background: #FFF9E6;
+            border: 1px solid #FFE066;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .upload-instructions h5 {
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        
+        /* Pagination */
+        .pagination-custom .page-link {
+            color: var(--orange);
+            border: 1px solid var(--border);
+            margin: 0 3px;
+            border-radius: 4px;
+        }
+        
+        .pagination-custom .page-item.active .page-link {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .search-container {
+                margin: 15px 0;
+            }
+            
+            .header-action {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .product-image-container {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="tel:+2347018100774" class="top-link">
+                        <i class="fas fa-phone-alt me-1"></i>07018100774
+                    </a>
+                    <a href="mailto:nuhheedsernabbahh@gmail.com" class="top-link">
+                        <i class="fas fa-envelope me-1"></i>nuhheedsernabbahh@gmail.com
+                    </a>
+                </div>
+                <div>
+                    <a href="#help" class="top-link">Help Center</a>
+                    <a href="#track" class="top-link">Track Order</a>
+                    <a href="#seller" class="top-link">Become a Seller</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-6">
+                    <a href="#" class="logo">NUHHEEDSERN<span style="color: var(--dark);">ABBAHH</span></a>
+                    <div class="logo-sub">Fashion World Design</div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 mt-md-3 mt-lg-0">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search for dresses, gowns, children wears...">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-6 mt-md-3 mt-lg-0 text-end">
+                    <a href="#account" class="header-action">
+                        <i class="fas fa-user-circle"></i>My Account
+                    </a>
+                    <a href="#orders" class="header-action">
+                        <i class="fas fa-shopping-bag"></i>Orders
+                    </a>
+                    <a href="#wishlist" class="header-action">
+                        <i class="fas fa-heart"></i>Wishlist
+                    </a>
+                    <a href="https://wa.me/2347018100774" class="header-action" style="color: var(--orange);">
+                        <i class="fab fa-whatsapp"></i>Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Navigation -->
+<nav class="main-nav">
+    <div class="container">
+        <div class="d-flex overflow-auto">
+            <a href="#home" class="nav-link-custom active">Home</a>
+            <a href="#women" class="nav-link-custom">Women's Fashion</a>
+            <a href="#children" class="nav-link-custom">Children Wears</a>
+            <a href="#traditional" class="nav-link-custom">Traditional Attire</a>
+            <a href="#office" class="nav-link-custom">Office Wear</a>
+            <a href="#party" class="nav-link-custom">Party Dresses</a>
+            <a href="#sewing" class="nav-link-custom">Sewing Services</a>
+            <a href="#custom" class="nav-link-custom">Custom Orders</a>
+            <a href="#sales" class="nav-link-custom" style="color: #DC2626;">Hot Sales</a>
+            <a href="#new" class="nav-link-custom">New Arrivals</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container my-4">
+    <!-- Image Upload Instructions -->
+    <div class="upload-instructions">
+        <h5><i class="fas fa-image me-2"></i>HOW TO ADD YOUR PRODUCT PHOTOS</h5>
+        <p class="mb-2">1. Upload your product photos to <a href="https://imgur.com" target="_blank">Imgur.com</a> (free)</p>
+        <p class="mb-2">2. Copy the direct image link</p>
+        <p class="mb-0">3. Replace <code>YOUR_IMAGE_LINK_HERE</code> in the code with your image URL</p>
+    </div>
+    
+    <div class="row">
+        <!-- Categories Sidebar -->
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="categories-sidebar">
+                <div class="category-heading">OUR CATEGORIES</div>
+                <a href="#ladies-gowns" class="category-item">
+                    Ladies Gowns & Dresses
+                    <span class="category-count">45</span>
+                </a>
+                <a href="#children" class="category-item">
+                    Children Wears
+                    <span class="category-count">32</span>
+                </a>
+                <a href="#hijabs" class="category-item">
+                    Hijabs & Veils
+                    <span class="category-count">18</span>
+                </a>
+                <a href="#traditional" class="category-item">
+                    Traditional Attire
+                    <span class="category-count">24</span>
+                </a>
+                <a href="#office" class="category-item">
+                    Office & Corporate
+                    <span class="category-count">27</span>
+                </a>
+                <a href="#party" class="category-item">
+                    Party & Event Wear
+                    <span class="category-count">36</span>
+                </a>
+                <a href="#casual" class="category-item">
+                    Casual Wear
+                    <span class="category-count">41</span>
+                </a>
+                <a href="#fabrics" class="category-item">
+                    Fabrics & Materials
+                    <span class="category-count">15</span>
+                </a>
+                <a href="#sewing" class="category-item">
+                    Sewing Services
+                    <span class="category-count">∞</span>
+                </a>
+                <a href="#custom" class="category-item">
+                    Custom Orders
+                    <span class="category-count">∞</span>
+                </a>
+                
+                <div class="category-heading mt-4">FILTER BY PRICE</div>
+                <a href="#under5k" class="category-item">Under ₦5,000</a>
+                <a href="#5k-10k" class="category-item">₦5,000 - ₦10,000</a>
+                <a href="#10k-20k" class="category-item">₦10,000 - ₦20,000</a>
+                <a href="#20k+" class="category-item">₦20,000 & Above</a>
+            </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="col-lg-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0">FASHION PRODUCTS (100+ Items)</h4>
+                <div class="d-flex align-items-center">
+                    <span class="me-3">Sort by:</span>
+                    <select class="form-select form-select-sm" style="width: auto;">
+                        <option>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                        <option>Best Rated</option>
+                    </select>
+                </div>
+            </div>
+<!-- Products Row 1-6 -->
+<div class="row" id="productsGrid">
+    <!-- Product 1 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-tshirt"></i>
+                    <div>Ladies Gown 1</div>
+                    <small>Add your photo</small>
+                </div>
+                <div class="discount-badge">-15%</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Elegant Ladies Evening Gown</h3>
+                <div class="product-price">₦15,500</div>
+                <div class="original-price">₦18,000</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="ms-1">(24)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 15 items left</div>
+                <button class="add-to-cart-btn" data-product="Elegant Ladies Evening Gown" data-price="15500">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 2 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-child"></i>
+                    <div>Children's Wear</div>
+                    <small>Add your photo</small>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Children's Casual Set (2-8 Years)</h3>
+                <div class="product-price">₦8,000</div>
+                <div class="original-price">₦9,500</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span class="ms-1">(18)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 8 items left</div>
+                <button class="add-to-cart-btn" data-product="Children's Casual Set" data-price="8000">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 3 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-vest"></i>
+                    <div>Traditional</div>
+                    <small>Add your photo</small>
+                </div>
+                <div class="discount-badge">-20%</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Complete Traditional Attire Set</h3>
+                <div class="product-price">₦25,000</div>
+                <div class="original-price">₦31,000</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="ms-1">(12)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 5 items left</div>
+                <button class="add-to-cart-btn" data-product="Traditional Attire Set" data-price="25000">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 4 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-female"></i>
+                    <div>Office Wear</div>
+                    <small>Add your photo</small>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Professional Office Suit Set</h3>
+                <div class="product-price">₦12,500</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="ms-1">(31)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 12 items left</div>
+                <button class="add-to-cart-btn" data-product="Office Suit Set" data-price="12500">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 5 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-gem"></i>
+                    <div>Party Dress</div>
+                    <small>Add your photo</small>
+                </div>
+                <div class="discount-badge">-25%</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Sparkling Party Dress</h3>
+                <div class="product-price">₦18,500</div>
+                <div class="original-price">₦24,500</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span class="ms-1">(42)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 6 items left</div>
+                <button class="add-to-cart-btn" data-product="Sparkling Party Dress" data-price="18500">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 6 -->
+    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="product-image-placeholder">
+                    <i class="fas fa-user-tie"></i>
+                    <div>Men's Wear</div>
+                    <small>Add your photo</small>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Men's Traditional Agbada</h3>
+                <div class="product-price">₦35,000</div>
+                <div class="original-price">₦42,000</div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="ms-1">(8)</span>
+                </div>
+                <div class="product-stock in-stock">In Stock • 3 items left</div>
+                <button class="add-to-cart-btn" data-product="Men's Agbada" data-price="35000">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+                <!-- Product 7 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-hands"></i>
+                                <div>Hijab Set</div>
+                                <small>Add your photo</small>
+                            </div>
+                            <div class="discount-badge">-10%</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Premium Hijab Set (3 Pieces)</h3>
+                            <div class="product-price">₦6,500</div>
+                            <div class="original-price">₦7,200</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-1">(56)</span>
+                            </div>
+                            <div class="product-stock in-stock">In Stock • 25 items left</div>
+                            <button class="add-to-cart-btn" data-product="Hijab Set" data-price="6500">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-baby"></i>
+                                <div>Baby Clothes</div>
+                                <small>Add your photo</small>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Baby Clothes Set (0-2 Years)</h3>
+                            <div class="product-price">₦4,500</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-1">(67)</span>
+                            </div>
+                            <div class="product-stock in-stock">In Stock • 18 items left</div>
+                            <button class="add-to-cart-btn" data-product="Baby Clothes Set" data-price="4500">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-cut"></i>
+                                <div>Sewing Service</div>
+                                <small>Add your photo</small>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Custom Sewing/Tailoring Service</h3>
+                            <div class="product-price">From ₦8,000</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-1">(89)</span>
+                            </div>
+                            <div class="product-stock in-stock">Available • Book Now</div>
+                            <button class="add-to-cart-btn" data-product="Sewing Service" data-price="8000">
+                                <i class="fas fa-calendar me-2"></i>Book Service
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-tshirt"></i>
+                                <div>Casual Dress</div>
+                                <small>Add your photo</small>
+                            </div>
+                            <div class="discount-badge">-30%</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Everyday Casual Dress</h3>
+                            <div class="product-price">₦7,500</div>
+                            <div class="original-price">₦10,500</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1">(23)</span>
+                            </div>
+                            <div class="product-stock in-stock">In Stock • 14 items left</div>
+                            <button class="add-to-cart-btn" data-product="Casual Dress" data-price="7500">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-vest"></i>
+                                <div>Traditional 2</div>
+                                <small>Add your photo</small>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ankara 3-Piece Set</h3>
+                            <div class="product-price">₦22,000</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1">(17)</span>
+                            </div>
+                            <div class="product-stock in-stock">In Stock • 7 items left</div>
+                            <button class="add-to-cart-btn" data-product="Ankara Set" data-price="22000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Graduation</div>
+                                <small>Add your photo</small>
+                            </div>
+                            <div class="discount-badge">-18%</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Graduation Gown & Attire</h3>
+                            <div class="product-price">₦28,000</div>
+                            <div class="original-price">₦34,000</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-1">(9)</span>
+                            </div>
+                            <div class="product-stock in-stock">In Stock • 4 items left</div>
+                            <button class="add-to-cart-btn" data-product="Graduation Gown" data-price="28000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination pagination-custom justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+                <p class="text-center text-muted mt-2">Showing 1-12 of 100+ products</p>
+            </nav>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>NEED HELP?</h5>
+                    <div class="footer-links">
+                        <a href="tel:+2347018100774"><i class="fas fa-phone me-2"></i>Call: 07018100774</a>
+                        <a href="https://wa.me/2347018100774" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                        <a href="mailto:nuhheedsernabbahh@gmail.com"><i class="fas fa-envelope me-2"></i>Email Us</a>
+                        <a href="#faq"><i class="fas fa-question-circle me-2"></i>Help Center</a>
+                        <a href="#contact"><i class="fas fa-headset me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>MY JUMIA ACCOUNT</h5>
+                    <div class="footer-links">
+                        <a href="#orders"><i class="fas fa-shopping-bag me-2"></i>Orders</a>
+                        <a href="#reviews"><i class="fas fa-star me-2"></i>Pending Reviews</a>
+                        <a href="#voucher"><i class="fas fa-ticket-alt me-2"></i>Voucher</a>
+                        <a href="#wishlist"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                        <a href="#account"><i class="fas fa-user me-2"></i>Account Details</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>OUR CATEGORIES</h5>
+                    <div class="footer-links">
+                        <a href="#women">Women's Fashion</a>
+                        <a href="#children">Children Wears</a>
+                        <a href="#traditional">Traditional Attire</a>
+                        <a href="#office">Office & Corporate</a>
+                        <a href="#party">Party & Event Wear</a>
+                        <a href="#sewing">Sewing Services</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>COMPANY</h5>
+                    <div class="footer-links">
+                        <a href="#about">About Nuhheedsern Abbahh</a>
+                        <a href="#policy">Privacy Policy</a>
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#returns">Return Policy</a>
+                        <a href="#shipping">Shipping & Delivery</a>
+                        <a href="#payment">Payment Methods</a>
+                        <a href="#seller">Become a Partner</a>
+                        <a href="#report">Report a Product</a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr style="border-color: #444;">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-2">&copy; 2026 Nuhheedsern Abbahh's Update. All rights reserved.</p>
+                    <p class="small mb-0">Quality Fashion • Custom Sewing • Timeless Style</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Fashion World Design</p>
+                    <p class="small mb-0">Nigeria's Premium Fashion Destination</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Help Button -->
+    <a href="https://wa.me/2347018100774" class="help-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Shopping Cart System
+        let cart = [];
+        let cartTotal = 0;
+        
+        // Add to Cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.getAttribute('data-product');
+                const productPrice = parseInt(this.getAttribute('data-price'));
+                
+                // Add to cart
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                });
+                
+                cartTotal += productPrice;
+                
+                // Show notification
+                showNotification(`${productName} added to cart!`);
+                
+                // Update cart badge
+                updateCartCount();
+            });
+        });
+        
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'position-fixed top-0 end-0 p-3';
+            notification.style.zIndex = '1100';
+            notification.innerHTML = `
+                <div class="toast show" role="alert">
+                    <div class="toast-header" style="background: var(--orange); color: white;">
+                        <strong class="me-auto"><i class="fas fa-check-circle me-2"></i>Success</strong>
+                        <button type="button" class="btn-close btn-close-white" onclick="this.closest('.position-fixed').remove()"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+        
+        function updateCartCount() {
+            let cartBadge = document.querySelector('.cart-badge');
+            if (!cartBadge) {
+                // Create badge if doesn't exist
+                const accountLink = document.querySelector('a[href="#account"]');
+                if (accountLink) {
+                    cartBadge = document.createElement('span');
+                    cartBadge.className = 'cart-badge position-absolute translate-middle badge rounded-pill bg-danger';
+                    cartBadge.style.fontSize = '0.7rem';
+                    cartBadge.style.top = '5px';
+                    cartBadge.style.right = '-10px';
+                    accountLink.style.position = 'relative';
+                    accountLink.appendChild(cartBadge);
+                }
+            }
+            
+            if (cartBadge) {
+                cartBadge.textContent = cart.length;
+            }
+        }
+        
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value.trim();
+            if (searchTerm) {
+                alert(`Searching for: "${searchTerm}"\n\nIn a real website, this would filter products.\n\nFor now, you can add your products and they will appear here.`);
+            }
+        });
+        
+        // Enter key in search
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+        
+        // How to add images instructions
+        const imageInstructions = `
+HOW TO ADD YOUR PRODUCT PHOTOS:
+
+1. Take photos of your fashion products
+2. Upload to Imgur.com (free)
+3. Get direct image link
+4. Replace placeholder with:
+   <img src="YOUR_IMAGE_LINK" style="width:100%;height:100%;object-fit:cover;">
+
+EXAMPLE:
+<div class="product-image-container">
+    <img src="https://i.imgur.com/YOUR_IMAGE_ID.jpg" style="width:100%;height:100%;object-fit:cover;">
+    <div class="discount-badge">-15%</div>
+</div>
+
+You need to do this for each product (100+ products).
+        `;
+        
+        console.log(imageInstructions);
+    </script>
+</body>
+</html>
