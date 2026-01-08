@@ -959,102 +959,263 @@
                 <div class="col-md-6">
                     <p class="mb-2">&copy; 2026 Nuhheedsern Abbahh's Update. All rights reserved.</p>
 <!-- FOOTER START -->
-<footer class="main-footer">
-  <div class="container">
-    <div class="row">
+                    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuhheedsern Abbahh - Advanced Footer</title>
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #121212;
+            --accent: #25D366; /* WhatsApp Green */
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border: #2a2a2a;
+            --transition: all 0.3s ease;
+        }
 
-      <!-- NEED HELP -->
-      <div class="col-md-3">
-        <h5>NEED HELP?</h5>
-        <div class="footer-links">
-          <a href="tel:+2347018100774">Call: 07018100774</a>
-          <a href="https://wa.me/2347018100774" target="_blank">Chat on WhatsApp</a>
-          <a href="mailto:nuhheedsernabbahh@gmail.com">Email Us</a>
-          <a href="#help">Help Center</a>
-          <a href="#contact">Contact Us</a>
-        </div>
-      </div>
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
-      <!-- MY ACCOUNT -->
-      <div class="col-md-3">
-        <h5>MY ACCOUNT</h5>
-        <div class="footer-links">
-          <a href="#orders">My Orders</a>
-          <a href="#reviews">Customer Reviews</a>
-          <a href="#wishlist">Saved Items</a>
-          <a href="#account">Account Details</a>
-        </div>
-      </div>
+        .footer-wrapper { max-width: 500px; margin: 0 auto; }
 
-      <!-- OUR CATEGORIES -->
-      <div class="col-md-3">
-        <h5>OUR CATEGORIES</h5>
-        <div class="footer-links">
-          <a href="#women">Women's Fashion</a>
-          <a href="#children">Children Wears</a>
-          <a href="#traditional">Traditional Attire</a>
-          <a href="#office">Office & Corporate</a>
-          <a href="#party">Party & Event Wear</a>
-          <a href="#sewing">Sewing Services</a>
-        </div>
-      </div>
+        .group-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin: 25px 0 10px 5px;
+            letter-spacing: 1.5px;
+        }
 
-      <!-- COMPANY -->
-      <div class="col-md-3">
-        <h5>COMPANY</h5>
-        <div class="footer-links">
-          <a href="#about">About Nuhheedsern Abbahh</a>
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms & Conditions</a>
-          <a href="#returns">Return Policy</a>
-          <a href="#shipping">Shipping & Delivery</a>
-          <a href="#payment">Payment Methods</a>
-          <a href="#partner">Become a Partner</a>
-          <a href="#report">Report a Product</a>
-        </div>
-      </div>
+        /* Accordion Style */
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
 
+        .item-trigger {
+            width: 100%;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background: #0a0a0a;
+            padding: 0 16px;
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .item.active .item-content {
+            max-height: 600px;
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .chevron {
+            width: 16px; height: 16px; fill: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .item.active .chevron { transform: rotate(180deg); fill: var(--accent); }
+
+        /* Bank Detail Card */
+        .bank-card {
+            background: #1a1a1a;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid var(--accent);
+        }
+
+        .copy-btn {
+            background: var(--accent);
+            border: none;
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Form Styling (Partners/Reports) */
+        input, textarea {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="footer-wrapper">
+    
+    <div class="group-title">Help Center</div>
+    
+    <div class="item">
+        <button class="item-trigger"><span>Ordering</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">Ordering is simple. Browse, select sizes, and checkout. Orders appear in "My Orders" immediately. Notifications sent via WhatsApp.</div>
     </div>
 
-    <hr style="border-color:#333;">
-
-    <div class="text-center">
-      <p class="mb-1">
-        © 2026 <strong>Nuhheedsern Abbahh’s Update</strong>. All rights reserved.
-      </p>
-      <p class="mb-0">
-        Quality Fashion • Custom Sewing • Timeless Style<br>
-        Fashion World Design — Nigeria’s Premium Fashion Destination
-      </p>
+    <div class="item">
+        <button class="item-trigger"><span>Payment (Bank Details)</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">
+            We accept transfers. Tap to copy details:
+            <div class="bank-card"><span>OPay: 6104026183</span><button class="copy-btn" onclick="copy('6104026183')">COPY</button></div>
+            <div class="bank-card"><span>UBA: 2179200160</span><button class="copy-btn" onclick="copy('2179200160')">COPY</button></div>
+        </div>
     </div>
-  </div>
-</footer>
 
-<!-- HELP CENTER SECTION -->
-<div id="help" class="container my-5">
-  <h3>Help Center</h3>
-  <p>
-    Welcome to Nuhheedsern Abbahh’s Update Help Center.  
-    We assist customers with orders, payments, deliveries, custom sewing,
-    and general inquiries.
-  </p>
-  <ul>
-    <li>Order & delivery support</li>
-    <li>Custom sewing guidance</li>
-    <li>Payment assistance</li>
-    <li>Product inquiries</li>
-  </ul>
+    <div class="item">
+        <button class="item-trigger"><span>Delivery & Returns</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">Nationwide delivery. Report issues within 48hrs. Note: Custom outfits are only returnable for production errors.</div>
+    </div>
+
+    <div class="group-title">My Jumia Account</div>
+    
+    <div class="item">
+        <button class="item-trigger"><span>Orders & Tracking</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">
+            <input type="text" placeholder="Enter Order ID to Track...">
+            <button class="submit-btn">Track Progress</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="item-trigger"><span>Account Details & Wishlist</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">Manage your profile, saved items, and reviews from your personalized dashboard.</div>
+    </div>
+
+    <div class="group-title">Our Categories</div>
+    <div class="item">
+        <button class="item-trigger"><span>Fashion & Sewing</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">
+            • Women's Fashion (Abayas/Gowns)<br>
+            • Children's & Traditional Wear<br>
+            • Office & Event Wear<br>
+            • Professional Sewing Services
+        </div>
+    </div>
+
+    <div class="group-title">Company</div>
+    
+    <div class="item">
+        <button class="item-trigger"><span>About & Policies</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">Nuhheedsern Abbahh combines modesty and culture. Our terms ensure high-quality production for every client.</div>
+    </div>
+
+    <div class="item">
+        <button class="item-trigger"><span>Become a Partner</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <textarea placeholder="Tell us about your business..."></textarea>
+            <button class="submit-btn">Apply Now</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="item-trigger"><span>Report a Product</span><svg class="chevron" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5"/></svg></button>
+        <div class="item-content">
+            <input type="text" placeholder="Order ID">
+            <textarea placeholder="Describe the issue..."></textarea>
+            <button class="submit-btn" style="background: #ff4444; color: white;">Report Issue</button>
+        </div>
+    </div>
+
+    <div class="group-title">Contact Us</div>
+    <div class="contact-grid">
+        <a href="tel:07018100774" class="contact-card">📞 Call Support</a>
+        <a href="https://wa.me/2347018100774" class="contact-card" style="border-color: var(--accent);">💬 WhatsApp</a>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 11px; color: var(--text-secondary);">
+        Mon–Sat, 9AM–6PM | nuhheedsernabbahh@gmail.com
+    </div>
+
 </div>
 
-<!-- CONTACT US SECTION -->
-<div id="contact" class="container my-5">
-  <h3>Contact Us</h3>
-  <p><strong>Phone:</strong> 07018100774</p>
-  <p><strong>WhatsApp:</strong> <a href="https://wa.me/2347018100774">Chat Now</a></p>
-  <p><strong>Email:</strong> nuhheedsernabbahh@gmail.com</p>
-  <p>
-    We are always ready to serve you with quality fashion
-    and professional sewing services.
-  </p>
-</div>
+<script>
+    // Logic for Accordion: Only one open at a time
+    document.querySelectorAll('.item-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const currentItem = trigger.parentElement;
+            const isOpen = currentItem.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.item').forEach(item => item.classList.remove('active'));
+            
+            // Open clicked if it wasn't already open
+            if (!isOpen) currentItem.classList.add('active');
+        });
+    });
+
+    // Copy to Clipboard Utility
+    function copy(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Account number " + text + " copied!");
+        });
+    }
+</script>
+            
+    
 <!-- FOOTER END -->
