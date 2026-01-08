@@ -958,134 +958,103 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="mb-2">&copy; 2026 Nuhheedsern Abbahh's Update. All rights reserved.</p>
-                    <p class="small mb-0">Quality Fashion • Custom Sewing • Timeless Style</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Fashion World Design</p>
-                    <p class="small mb-0">Nigeria's Premium Fashion Destination</p>
-                </div>
-            </div>
+<!-- FOOTER START -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="row">
+
+      <!-- NEED HELP -->
+      <div class="col-md-3">
+        <h5>NEED HELP?</h5>
+        <div class="footer-links">
+          <a href="tel:+2347018100774">Call: 07018100774</a>
+          <a href="https://wa.me/2347018100774" target="_blank">Chat on WhatsApp</a>
+          <a href="mailto:nuhheedsernabbahh@gmail.com">Email Us</a>
+          <a href="#help">Help Center</a>
+          <a href="#contact">Contact Us</a>
         </div>
-    </footer>
+      </div>
 
-    <!-- WhatsApp Help Button -->
-    <a href="https://wa.me/2347018100774" class="help-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+      <!-- MY ACCOUNT -->
+      <div class="col-md-3">
+        <h5>MY ACCOUNT</h5>
+        <div class="footer-links">
+          <a href="#orders">My Orders</a>
+          <a href="#reviews">Customer Reviews</a>
+          <a href="#wishlist">Saved Items</a>
+          <a href="#account">Account Details</a>
+        </div>
+      </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Shopping Cart System
-        let cart = [];
-        let cartTotal = 0;
-        
-        // Add to Cart functionality
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.getAttribute('data-product');
-                const productPrice = parseInt(this.getAttribute('data-price'));
-                
-                // Add to cart
-                cart.push({
-                    name: productName,
-                    price: productPrice,
-                    quantity: 1
-                });
-                
-                cartTotal += productPrice;
-                
-                // Show notification
-                showNotification(`${productName} added to cart!`);
-                
-                // Update cart badge
-                updateCartCount();
-            });
-        });
-        
-        function showNotification(message) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'position-fixed top-0 end-0 p-3';
-            notification.style.zIndex = '1100';
-            notification.innerHTML = `
-                <div class="toast show" role="alert">
-                    <div class="toast-header" style="background: var(--orange); color: white;">
-                        <strong class="me-auto"><i class="fas fa-check-circle me-2"></i>Success</strong>
-                        <button type="button" class="btn-close btn-close-white" onclick="this.closest('.position-fixed').remove()"></button>
-                    </div>
-                    <div class="toast-body">
-                        ${message}
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(notification);
-            
-            // Auto-remove after 3 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 3000);
-        }
-        
-        function updateCartCount() {
-            let cartBadge = document.querySelector('.cart-badge');
-            if (!cartBadge) {
-                // Create badge if doesn't exist
-                const accountLink = document.querySelector('a[href="#account"]');
-                if (accountLink) {
-                    cartBadge = document.createElement('span');
-                    cartBadge.className = 'cart-badge position-absolute translate-middle badge rounded-pill bg-danger';
-                    cartBadge.style.fontSize = '0.7rem';
-                    cartBadge.style.top = '5px';
-                    cartBadge.style.right = '-10px';
-                    accountLink.style.position = 'relative';
-                    accountLink.appendChild(cartBadge);
-                }
-            }
-            
-            if (cartBadge) {
-                cartBadge.textContent = cart.length;
-            }
-        }
-        
-        // Search functionality
-        document.querySelector('.search-btn').addEventListener('click', function() {
-            const searchTerm = document.querySelector('.search-input').value.trim();
-            if (searchTerm) {
-                alert(`Searching for: "${searchTerm}"\n\nIn a real website, this would filter products.\n\nFor now, you can add your products and they will appear here.`);
-            }
-        });
-        
-        // Enter key in search
-        document.querySelector('.search-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.querySelector('.search-btn').click();
-            }
-        });
-        
-        // How to add images instructions
-        const imageInstructions = `
-HOW TO ADD YOUR PRODUCT PHOTOS:
+      <!-- OUR CATEGORIES -->
+      <div class="col-md-3">
+        <h5>OUR CATEGORIES</h5>
+        <div class="footer-links">
+          <a href="#women">Women's Fashion</a>
+          <a href="#children">Children Wears</a>
+          <a href="#traditional">Traditional Attire</a>
+          <a href="#office">Office & Corporate</a>
+          <a href="#party">Party & Event Wear</a>
+          <a href="#sewing">Sewing Services</a>
+        </div>
+      </div>
 
-1. Take photos of your fashion products
-2. Upload to Imgur.com (free)
-3. Get direct image link
-4. Replace placeholder with:
-   <img src="YOUR_IMAGE_LINK" style="width:100%;height:100%;object-fit:cover;">
+      <!-- COMPANY -->
+      <div class="col-md-3">
+        <h5>COMPANY</h5>
+        <div class="footer-links">
+          <a href="#about">About Nuhheedsern Abbahh</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms & Conditions</a>
+          <a href="#returns">Return Policy</a>
+          <a href="#shipping">Shipping & Delivery</a>
+          <a href="#payment">Payment Methods</a>
+          <a href="#partner">Become a Partner</a>
+          <a href="#report">Report a Product</a>
+        </div>
+      </div>
 
-EXAMPLE:
-<div class="product-image-container">
-    <img src="https://i.imgur.com/YOUR_IMAGE_ID.jpg" style="width:100%;height:100%;object-fit:cover;">
-    <div class="discount-badge">-15%</div>
+    </div>
+
+    <hr style="border-color:#333;">
+
+    <div class="text-center">
+      <p class="mb-1">
+        © 2026 <strong>Nuhheedsern Abbahh’s Update</strong>. All rights reserved.
+      </p>
+      <p class="mb-0">
+        Quality Fashion • Custom Sewing • Timeless Style<br>
+        Fashion World Design — Nigeria’s Premium Fashion Destination
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- HELP CENTER SECTION -->
+<div id="help" class="container my-5">
+  <h3>Help Center</h3>
+  <p>
+    Welcome to Nuhheedsern Abbahh’s Update Help Center.  
+    We assist customers with orders, payments, deliveries, custom sewing,
+    and general inquiries.
+  </p>
+  <ul>
+    <li>Order & delivery support</li>
+    <li>Custom sewing guidance</li>
+    <li>Payment assistance</li>
+    <li>Product inquiries</li>
+  </ul>
 </div>
 
-You need to do this for each product (100+ products).
-        `;
-        
-        console.log(imageInstructions);
-    </script>
-</body>
-</html>
+<!-- CONTACT US SECTION -->
+<div id="contact" class="container my-5">
+  <h3>Contact Us</h3>
+  <p><strong>Phone:</strong> 07018100774</p>
+  <p><strong>WhatsApp:</strong> <a href="https://wa.me/2347018100774">Chat Now</a></p>
+  <p><strong>Email:</strong> nuhheedsernabbahh@gmail.com</p>
+  <p>
+    We are always ready to serve you with quality fashion
+    and professional sewing services.
+  </p>
+</div>
+<!-- FOOTER END -->
